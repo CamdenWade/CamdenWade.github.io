@@ -1,1 +1,174 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="An interactive platform for exploring major-league player performance, Statcast metrics, scouting reports, and team trends."><meta name="theme-color" content="#111215"><title>MLB Analytics HUB | Camden Wade</title><link rel="stylesheet" href="../assets/style.css?v=orange-20261109"></head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html">Camden<span>Wade.</span></a><nav aria-label="Main navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="nav-github" href="https://github.com/CamdenWade" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header><main><section class="case-hero"><div class="wrap"><a class="back" href="../index.html#projects">← All projects</a><p class="eyebrow">Baseball analytics · R Shiny</p><h1>MLB Analytics HUB</h1><p>An interactive platform for exploring major-league player performance, Statcast metrics, scouting reports, and team trends.</p><div class="actions"><a class="btn primary" href="https://camden-wade.shinyapps.io/MLB-Analytics-HUB/" target="_blank" rel="noopener noreferrer">Explore live app ↗</a><a class="btn outlined" href="https://github.com/CamdenWade/MLB-Analytics-HUB" target="_blank" rel="noopener noreferrer">View GitHub ↗</a></div></div></section><section class="case-visuals wrap" aria-label="MLB Analytics HUB screenshots"><div class="case-visuals-heading"><p class="eyebrow">INSIDE THE PROJECT</p><h2>See the work in action.</h2><p>Selected screenshots from the application. Select an image to see the full-size version.</p></div><div class="case-gallery"><figure><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/home.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Home dashboard"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/home.png" alt="MLB Analytics HUB home dashboard" loading="lazy" decoding="async"></a><figcaption>Home dashboard</figcaption></figure><figure><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/team_dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Team-level performance views"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/team_dashboard.png" alt="MLB Analytics HUB team dashboard with player performance summaries" loading="lazy" decoding="async"></a><figcaption>Team-level performance views</figcaption></figure><figure><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/WAR_model.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: WAR modeling insights"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/WAR_model.png" alt="MLB Analytics HUB WAR modeling insights chart" loading="lazy" decoding="async"></a><figcaption>WAR modeling insights</figcaption></figure></div></section><article class="case-body wrap"><div class="case-main"><h2>The question</h2><p>How can advanced baseball statistics be made useful in a single interactive analysis and scouting environment?</p><h2>What I built and explored</h2><ul><li>Built player profiles, hitter and pitcher leaderboards, and team dashboards.</li><li>Developed Statcast visualizations and tools for side-by-side player comparisons.</li><li>Created downloadable player scouting reports using Quarto.</li><li>Included modeling insights comparing actual and predicted WAR.</li></ul><h2>Tools and methods</h2><p>R, Shiny, ggplot2, dplyr, plotly, Quarto</p><h2>Takeaway</h2><p>The goal was to make detailed sports information more accessible and useful through interactive tools and clear reporting.</p></div><aside class="case-side"><h3>Project at a glance</h3><p><b>Focus</b><span>Baseball analytics · R Shiny</span></p><p><b>Technology</b><span>R, Shiny, ggplot2, dplyr, plotly, Quarto</span></p><p><b>Links</b><span><a href="https://camden-wade.shinyapps.io/MLB-Analytics-HUB/" target="_blank" rel="noopener noreferrer">Live app ↗</a> <a href="https://github.com/CamdenWade/MLB-Analytics-HUB" target="_blank" rel="noopener noreferrer">Repository ↗</a></span></p></aside></article></main><footer><div class="wrap foot-inner"><span>© Camden Wade · Sports Analytics & Technology</span><a href="../index.html">Back to home ↑</a></div></footer></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="An inside look at how Camden Wade built MLB Analytics HUB, from FanGraphs and Statcast data preparation to interactive R Shiny dashboards, WAR analysis, and Quarto scouting reports."><meta name="theme-color" content="#111215"><title>MLB Analytics HUB — Technical Case Study | Camden Wade</title><link rel="stylesheet" href="../assets/style.css?v=orange-20261109"></head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html">Camden<span>Wade.</span></a><nav aria-label="Main navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="nav-github" href="https://github.com/CamdenWade" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header><main id="main-content">
+  <section class="study-hero">
+    <div class="wrap study-hero-grid">
+      <div class="study-hero-copy">
+        <a class="back" href="../index.html#projects">← All projects</a>
+        <p class="study-hero-eyebrow">PROJECT CASE STUDY <span aria-hidden="true">/</span> BASEBALL ANALYTICS</p>
+        <h1>MLB Analytics <span>HUB.</span></h1>
+        <p class="study-deck">From season leaderboards to player scouting reports: building one interactive workspace for exploring baseball performance and communicating useful insights.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://camden-wade.shinyapps.io/MLB-Analytics-HUB/" target="_blank" rel="noopener noreferrer">Launch the live app ↗</a>
+          <a class="btn outlined" href="https://github.com/CamdenWade/MLB-Analytics-HUB" target="_blank" rel="noopener noreferrer">View source code ↗</a>
+        </div>
+        <div class="study-hero-tags" aria-label="Project technologies"><span>R</span><span>Shiny / bslib</span><span>ggplot2</span><span>DT</span><span>Quarto</span></div>
+      </div>
+      <figure class="study-cover">
+        <a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/home.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size MLB Analytics HUB dashboard screenshot">
+          <img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/home.png" alt="MLB Analytics HUB homepage with navigation tabs and an overview of available analytical tools" decoding="async" fetchpriority="high">
+        </a>
+        <figcaption><span class="study-live-dot" aria-hidden="true"></span> ACTUAL APPLICATION SCREENSHOT <span>Home dashboard ↗</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <nav class="study-contents" aria-label="On this page">
+    <div class="wrap study-contents-inner">
+      <span class="study-contents-label">ON THIS PAGE</span>
+      <a href="#overview">Overview</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#features">Features</a>
+      <a href="#modeling">Modeling</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#limitations">Limitations</a>
+    </div>
+  </nav>
+
+  <section class="study-section" id="overview" aria-labelledby="overview-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">01 / PROJECT OVERVIEW</p><h2 id="overview-heading">One place to explore the numbers behind the game.</h2></div>
+      <div class="study-overview-grid">
+        <div class="study-prose">
+          <h3>The problem</h3>
+          <p>Baseball evaluation often means moving among player leaderboards, team summaries, batted-ball data, and static reports. Those sources can answer related questions, but the workflow is fragmented when someone wants to move from a broad comparison to a specific player.</p>
+          <h3>The approach</h3>
+          <p>I developed MLB Analytics HUB as a multi-view R Shiny application that brings selected FanGraphs statistics, a limited Baseball Savant Statcast sample, exploratory analysis, and shareable scouting profiles into a consistent interface.</p>
+          <p>The emphasis is on <strong>making analysis navigable</strong>: start with a leaderboard, narrow the context, compare players, inspect percentiles, and produce a player-focused HTML report.</p>
+        </div>
+        <aside class="study-fact-card" aria-label="Project details">
+          <h3>Project at a glance</h3>
+          <dl>
+            <div><dt>My role</dt><dd>Independent R / Shiny developer and analyst</dd></div>
+            <div><dt>Season statistics</dt><dd>2025 FanGraphs hitter and pitcher leaderboards</dd></div>
+            <div><dt>Batted-ball sample</dt><dd>April 1–3, 2024 Statcast data</dd></div>
+            <div><dt>Primary output</dt><dd>Interactive app + downloadable HTML scouting reports</dd></div>
+            <div><dt>Data sources</dt><dd>FanGraphs via baseballr; Baseball Savant / Statcast</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section-soft" id="workflow" aria-labelledby="workflow-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">02 / METHOD &amp; DATA PIPELINE</p><h2 id="workflow-heading">From raw data to usable analysis.</h2><p>The project separates data preparation from the running Shiny app so the interface can load locally processed datasets instead of repeatedly requesting external data on each page load.</p></div>
+      <ol class="study-pipeline">
+        <li><span class="study-step-num">01</span><h3>Acquire</h3><p>Retrieve 2025 FanGraphs hitter/pitcher leaderboards with <code>baseballr</code>, plus a short Baseball Savant Statcast sample.</p></li>
+        <li><span class="study-step-num">02</span><h3>Standardize</h3><p>Clean source column names, normalize player/team fields, retain selected Statcast variables, and save processed <code>.rds</code> files.</p></li>
+        <li><span class="study-step-num">03</span><h3>Analyze</h3><p>Compute relative player percentiles, team summaries, contact-quality measures, comparisons, and exploratory WAR-model outputs.</p></li>
+        <li><span class="study-step-num">04</span><h3>Deliver</h3><p>Use Shiny reactive inputs and reusable functions to power dashboards; render selected player reports with Quarto.</p></li>
+      </ol>
+      <p class="study-source-note">Explore the implementation: <a href="https://github.com/CamdenWade/MLB-Analytics-HUB/blob/main/scripts/01_build_data.R" target="_blank" rel="noopener noreferrer">data-building script ↗</a> and <a href="https://github.com/CamdenWade/MLB-Analytics-HUB/blob/main/R/data_prep.R" target="_blank" rel="noopener noreferrer">processed-data loader ↗</a>.</p>
+    </div>
+  </section>
+
+  <section class="study-section" id="features" aria-labelledby="features-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">03 / PRODUCT WALKTHROUGH</p><h2 id="features-heading">Explore the application.</h2><p>These are real screenshots from the GitHub repository. Each view is designed around a practical baseball question rather than a collection of charts without context.</p></div>
+      <article class="study-feature"><div class="study-feature-copy"><p class="study-kicker">FEATURE 01</p><h3>Find and filter player performance</h3><p>Separate hitter and pitcher leaderboards surface traditional and advanced statistics in sortable, team-filtered tables.</p><ul><li>Compare hitters using WAR, wRC+, OPS and counting statistics.</li><li>Evaluate pitchers with WAR, ERA, FIP, WHIP and rate metrics.</li><li>Use player headshots when source identifiers are available.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/hitter_leaderboard.png" target="_blank" rel="noopener noreferrer" aria-label="Open larger screenshot: Hitter leaderboard and team filtering"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/hitter_leaderboard.png" alt="MLB Analytics HUB hitter leaderboard with player rows and statistical columns" loading="lazy" decoding="async"></a><figcaption>Hitter leaderboard and team filtering<span aria-hidden="true">↗</span></figcaption></figure></article>
+      <article class="study-feature study-feature-reverse"><div class="study-feature-copy"><p class="study-kicker">FEATURE 02</p><h3>Evaluate pitchers with their own metrics</h3><p>A dedicated pitcher view avoids treating pitching evaluation as the same problem as hitting evaluation.</p><ul><li>Surface ERA and FIP alongside strikeout and walk rates.</li><li>Keep team context visible while sorting and reviewing qualified pitchers.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/pitcher_leaderboard.png" target="_blank" rel="noopener noreferrer" aria-label="Open larger screenshot: Pitcher leaderboard"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/pitcher_leaderboard.png" alt="MLB Analytics HUB pitcher leaderboard displaying season pitching statistics" loading="lazy" decoding="async"></a><figcaption>Pitcher leaderboard<span aria-hidden="true">↗</span></figcaption></figure></article>
+      <article class="study-feature"><div class="study-feature-copy"><p class="study-kicker">FEATURE 03</p><h3>Turn statistics into player profiles</h3><p>Player pages pair headline metrics with percentile visuals to give raw values a clearer comparison point.</p><ul><li>Use different metric sets for hitters and pitchers.</li><li>Reverse the percentile direction for metrics where lower is better, such as ERA and FIP.</li><li>Apply team-color styling to improve visual identification.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/player_profile.png" target="_blank" rel="noopener noreferrer" aria-label="Open larger screenshot: Player profile with percentile visualization"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/player_profile.png" alt="MLB Analytics HUB player profile showing summary metrics and a percentile chart" loading="lazy" decoding="async"></a><figcaption>Player profile with percentile visualization<span aria-hidden="true">↗</span></figcaption></figure></article>
+      <article class="study-feature study-feature-reverse"><div class="study-feature-copy"><p class="study-kicker">FEATURE 04</p><h3>Compare players side by side</h3><p>The comparison tool makes it easier to investigate the differences between two hitters or two pitchers without switching pages.</p><ul><li>Select two players and view key metrics together.</li><li>Pair a comparison table with a visual metric breakdown.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/player_comparison.png" target="_blank" rel="noopener noreferrer" aria-label="Open larger screenshot: Two-player comparison"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/player_comparison.png" alt="MLB Analytics HUB player comparison view showing a side-by-side statistical comparison" loading="lazy" decoding="async"></a><figcaption>Two-player comparison<span aria-hidden="true">↗</span></figcaption></figure></article>
+      <article class="study-feature"><div class="study-feature-copy"><p class="study-kicker">FEATURE 05</p><h3>Move from players to team context</h3><p>Team views bring together selected hitters and pitchers and display WAR-based leaders to make roster-level exploration more convenient.</p><ul><li>View included-player summaries for hitting and pitching.</li><li>Inspect the top performers within a selected team.</li><li>See team-colored visualizations for faster scanning.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/team_dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Open larger screenshot: Team dashboard and WAR leaders"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/team_dashboard.png" alt="MLB Analytics HUB team dashboard with team summary tables and leading players" loading="lazy" decoding="async"></a><figcaption>Team dashboard and WAR leaders<span aria-hidden="true">↗</span></figcaption></figure></article>
+      <article class="study-feature study-feature-reverse"><div class="study-feature-copy"><p class="study-kicker">FEATURE 06</p><h3>Make exploratory modeling visible</h3><p>The Modeling Insights tab exposes a hitter WAR regression through coefficient summaries, fit statistics, and rows with large fitted-versus-actual differences.</p><ul><li>Inspect model coefficients and summary diagnostics.</li><li>Review players with larger in-sample model residuals.</li><li>Treat the results as exploratory associations, not causal findings.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/WAR_model.png" target="_blank" rel="noopener noreferrer" aria-label="Open larger screenshot: WAR regression and model interpretation"><img src="https://raw.githubusercontent.com/CamdenWade/MLB-Analytics-HUB/main/screenshots/WAR_model.png" alt="MLB Analytics HUB modeling insights view with WAR regression outputs" loading="lazy" decoding="async"></a><figcaption>WAR regression and model interpretation<span aria-hidden="true">↗</span></figcaption></figure></article>
+    </div>
+  </section>
+
+  <section class="study-section study-section-soft" id="modeling" aria-labelledby="modeling-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">04 / ANALYTICAL DEPTH</p><h2 id="modeling-heading">Methods behind the interface.</h2><p>The app combines descriptive baseball analysis with a deliberately simple regression model and a small contact-quality exploration.</p></div>
+      <div class="study-method-grid">
+        <article class="study-method-card">
+          <span class="study-method-label">PLAYER EVALUATION</span>
+          <h3>Metric-aware percentile rankings</h3>
+          <p>For a selected player, the app measures the share of players in the included dataset with values at or below that player's mark. For lower-is-better pitching metrics, it reverses the direction so that higher displayed percentiles consistently represent stronger results.</p>
+          <pre aria-label="Example R percentile calculation"><code>pct &lt;- mean(vals &lt;= player_value) * 100
+if (!higher_is_better) pct &lt;- 100 - pct</code></pre>
+          <a href="https://github.com/CamdenWade/MLB-Analytics-HUB/blob/main/R/scouting.R" target="_blank" rel="noopener noreferrer">See scouting calculations in R ↗</a>
+        </article>
+        <article class="study-method-card">
+          <span class="study-method-label">REGRESSION</span>
+          <h3>Exploring offensive metrics and WAR</h3>
+          <p>A linear model estimates hitter WAR using HR, RBI, SB, AVG, OBP, SLG, OPS, and wRC+. The interface shows R-squared, adjusted R-squared, in-sample RMSE, coefficients, and the largest fitted-value differences.</p>
+          <pre aria-label="Example R model formula"><code>lm(war ~ hr + rbi + sb + avg + obp +
+     slg + ops + w_rc_plus, data = model_data)</code></pre>
+          <a href="https://github.com/CamdenWade/MLB-Analytics-HUB/blob/main/R/modeling.R" target="_blank" rel="noopener noreferrer">Review the regression implementation ↗</a>
+        </article>
+        <article class="study-method-card">
+          <span class="study-method-label">CONTACT QUALITY</span>
+          <h3>Statcast sample analysis</h3>
+          <p>The Statcast view summarizes exit velocity, launch angle, hard-hit rate, and an explicitly labeled <em>barrel-like</em> proxy. That proxy is based on a simple velocity/angle rule, not MLB's official barrel classification.</p>
+          <pre aria-label="Example R contact quality rule"><code>launch_speed &gt;= 98 &amp;
+launch_angle &gt;= 26 &amp;
+launch_angle &lt;= 30</code></pre>
+          <a href="https://github.com/CamdenWade/MLB-Analytics-HUB/blob/main/R/statcast.R" target="_blank" rel="noopener noreferrer">Inspect Statcast functions ↗</a>
+        </article>
+        <article class="study-method-card">
+          <span class="study-method-label">REPORTING</span>
+          <h3>Parameterized HTML scouting reports</h3>
+          <p>The app uses Shiny's download handler and Quarto to render player-specific HTML reports with summary KPIs, a percentile chart, a detailed statistical table, and an automatically generated high/low metric recap.</p>
+          <pre aria-label="Quarto report parameter names"><code>player_name
+player_type
+season
+project_dir</code></pre>
+          <a href="https://github.com/CamdenWade/MLB-Analytics-HUB/blob/main/report/player_report.qmd" target="_blank" rel="noopener noreferrer">See the Quarto template ↗</a>
+        </article>
+      </div>
+      <div class="study-caution"><strong>Model interpretation matters.</strong> Some of the model predictors overlap mathematically (for example, OPS combines OBP and SLG), so individual coefficients should not be read as independent causal effects. The displayed model fit and residuals are in-sample diagnostics, not a demonstrated out-of-sample forecast.</div>
+    </div>
+  </section>
+
+  <section class="study-section" id="engineering" aria-labelledby="engineering-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">05 / ENGINEERING &amp; PROBLEM SOLVING</p><h2 id="engineering-heading">The decisions behind the build.</h2></div>
+      <div class="study-decision-grid">
+        <article><span class="study-decision-num">01</span><h3>Different sources, different schemas</h3><p><strong>Challenge:</strong> FanGraphs and Baseball Savant provide different field names and structures.</p><p><strong>Implementation:</strong> A dedicated build script cleans column names, standardizes identifiers, and writes smaller processed R datasets for the app.</p></article>
+        <article><span class="study-decision-num">02</span><h3>Many views, one interface</h3><p><strong>Challenge:</strong> Leaderboards, profiles, comparisons, and modeling require different data shapes and outputs.</p><p><strong>Implementation:</strong> Analysis and plotting functions are separated into focused R files, while Shiny reactivity handles user selections.</p></article>
+        <article><span class="study-decision-num">03</span><h3>Turning a dashboard into a deliverable</h3><p><strong>Challenge:</strong> An interactive view is useful in the moment, but a scouting workflow also needs a shareable summary.</p><p><strong>Implementation:</strong> A parameterized Quarto document generates a player-specific HTML report from the same processed datasets.</p></article>
+      </div>
+      <div class="study-report-band">
+        <div><p class="study-kicker">REPORTING WORKFLOW</p><h3>From selected player to downloadable report.</h3><p>The report feature carries the user's hitter/pitcher selection into Quarto parameters and renders an HTML artifact with KPIs, percentile evaluations, and a compact summary. It demonstrates how an analytical interface can support a concrete handoff.</p></div>
+        <a class="btn outlined" href="https://github.com/CamdenWade/MLB-Analytics-HUB/blob/main/report/player_report.qmd" target="_blank" rel="noopener noreferrer">Read report template ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section-soft" id="limitations" aria-labelledby="limitations-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">06 / SCOPE &amp; NEXT STEPS</p><h2 id="limitations-heading">What this project demonstrates—and where it can improve.</h2></div>
+      <div class="study-ends-grid">
+        <div class="study-outcome">
+          <h3>What I built</h3>
+          <p>A publicly linked R Shiny application connecting baseball data preparation, several analytical views, relative player evaluation, exploratory modeling, and an automated scouting-report workflow.</p>
+          <p>It demonstrates an ability to move from a sports question to reproducible analysis, interactive presentation, and a tangible report—not just produce a standalone chart.</p>
+        </div>
+        <div class="study-limitations">
+          <h3>Important limitations</h3>
+          <ul>
+            <li><strong>Season scope:</strong> Leaderboards are drawn from the 2025 season with source qualification filters, not every MLB player-season.</li>
+            <li><strong>Statcast scope:</strong> The current sample covers April 1–3, 2024; it is not a full-season batted-ball dataset.</li>
+            <li><strong>Team summaries:</strong> They summarize the included players and should not be mistaken for official full-roster team statistics.</li>
+            <li><strong>WAR model:</strong> Coefficient interpretation is limited by correlated features and the absence of a documented holdout evaluation.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="study-next"><h3>If I were extending the project</h3><p>My next priorities would be adding multi-season data, broadening Statcast coverage, introducing an out-of-sample modeling benchmark, and writing automated checks around the data pipeline and report generation.</p></div>
+    </div>
+  </section>
+
+  <section class="study-cta" aria-label="Explore the project">
+    <div class="wrap study-cta-inner">
+      <div><p class="study-kicker">EXPLORE THE WORK</p><h2>See the application for yourself.</h2><p>Try the interactive dashboards or explore the implementation in GitHub.</p></div>
+      <div class="actions"><a class="btn primary" href="https://camden-wade.shinyapps.io/MLB-Analytics-HUB/" target="_blank" rel="noopener noreferrer">Open the live app ↗</a><a class="btn outlined" href="https://github.com/CamdenWade/MLB-Analytics-HUB" target="_blank" rel="noopener noreferrer">Browse the code ↗</a></div>
+    </div>
+  </section>
+</main><footer><div class="wrap foot-inner"><span>© Camden Wade · Sports Analytics & Technology</span><a href="../index.html">Back to home ↑</a></div></footer></body></html>
