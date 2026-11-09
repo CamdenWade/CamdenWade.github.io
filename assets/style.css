@@ -112,7 +112,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f28a2d; outline-offs
 .study-hero-tags span { border:1px solid #776357; background:#ffffff0c; border-radius:40px; padding:7px 11px; color:#e0d8d1; font-size:11px; font-weight:750; }
 .study-cover { min-width:0; margin:0; background:#1d1e22; border:1px solid #6c5748; border-radius:18px; padding:13px; box-shadow:0 22px 60px #0007; }
 .study-cover>a { display:block; overflow:hidden; border-radius:9px; background:#f4f2ee; }
-.study-cover img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top center; transition:transform .2s ease; }
+.study-cover img { display:block; width:100%; aspect-ratio:16/10; object-fit:contain; object-position:top center; transition:transform .2s ease; }
 .study-cover>a:hover img { transform:scale(1.025); }
 .study-cover figcaption { display:flex; gap:8px; align-items:center; padding:14px 5px 3px; color:#f0e7df; font-weight:750; font-size:10px; letter-spacing:1px; }
 .study-cover figcaption span:last-child { margin-left:auto; letter-spacing:0; color:#ffb579; font-size:11px; white-space:nowrap; }
@@ -157,7 +157,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f28a2d; outline-offs
 .study-feature-copy li::marker { color:#b24a00; }
 .study-shot { margin:0; min-width:0; background:#fff; border:1px solid #e4ddd7; border-radius:13px; padding:9px; box-shadow:0 12px 32px #23170e16; }
 .study-shot a { display:block; overflow:hidden; background:#f7f5f2; border-radius:6px; }
-.study-shot img { width:100%; display:block; aspect-ratio:16/9; object-fit:cover; object-position:top center; transition:transform .2s ease; }
+.study-shot img { width:100%; display:block; aspect-ratio:16/9; object-fit:contain; object-position:top center; transition:transform .2s ease; }
 .study-shot a:hover img { transform:scale(1.025); }
 .study-shot figcaption { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 8px 5px; color:#625f5e; font-size:12px; font-weight:750; }
 .study-shot figcaption span { color:#b24a00; }
