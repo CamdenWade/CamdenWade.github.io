@@ -1,1 +1,183 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="An interactive scouting tool for evaluating team tendencies, situational performance, and matchup context."><meta name="theme-color" content="#111215"><title>NFL Scouting Report App | Camden Wade</title><link rel="stylesheet" href="../assets/style.css?v=orange-20261109"></head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html">Camden<span>Wade.</span></a><nav aria-label="Main navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="nav-github" href="https://github.com/CamdenWade" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header><main><section class="case-hero"><div class="wrap"><a class="back" href="../index.html#projects">← All projects</a><p class="eyebrow">Football analytics · R Shiny</p><h1>NFL Scouting Report App</h1><p>An interactive scouting tool for evaluating team tendencies, situational performance, and matchup context.</p><div class="actions"><a class="btn primary" href="https://camden-wade.shinyapps.io/NFL-Scouting-Report-App/" target="_blank" rel="noopener noreferrer">Explore live app ↗</a><a class="btn outlined" href="https://github.com/CamdenWade/NFL-Scouting-Report-App" target="_blank" rel="noopener noreferrer">View GitHub ↗</a></div></div></section><section class="case-visuals wrap" aria-label="NFL Scouting Report App screenshots"><div class="case-visuals-heading"><p class="eyebrow">INSIDE THE PROJECT</p><h2>See the work in action.</h2><p>Selected screenshots from the application. Select an image to see the full-size version.</p></div><div class="case-gallery"><figure><a href="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/overview.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Team overview"><img src="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/overview.png" alt="NFL Scouting Report App team overview dashboard" loading="lazy" decoding="async"></a><figcaption>Team overview</figcaption></figure><figure><a href="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/matchup.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Matchup analysis"><img src="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/matchup.png" alt="NFL Scouting Report App offense versus defense matchup view" loading="lazy" decoding="async"></a><figcaption>Matchup analysis</figcaption></figure><figure><a href="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/fourth_down.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Fourth-down decisions"><img src="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/fourth_down.png" alt="NFL Scouting Report App fourth-down decision analysis" loading="lazy" decoding="async"></a><figcaption>Fourth-down decisions</figcaption></figure></div></section><article class="case-body wrap"><div class="case-main"><h2>The question</h2><p>How can play-by-play information become a practical scouting report for opposing teams?</p><h2>What I built and explored</h2><ul><li>Prepared NFL play-by-play information for offensive and defensive team profiles.</li><li>Created situational filters for down, red zone and other game contexts.</li><li>Built matchup and fourth-down decision analysis views.</li><li>Generated downloadable HTML scouting reports with Quarto.</li></ul><h2>Tools and methods</h2><p>R, Shiny, nflverse, gt, Quarto</p><h2>Takeaway</h2><p>The goal was to make detailed sports information more accessible and useful through interactive tools and clear reporting.</p></div><aside class="case-side"><h3>Project at a glance</h3><p><b>Focus</b><span>Football analytics · R Shiny</span></p><p><b>Technology</b><span>R, Shiny, nflverse, gt, Quarto</span></p><p><b>Links</b><span><a href="https://camden-wade.shinyapps.io/NFL-Scouting-Report-App/" target="_blank" rel="noopener noreferrer">Live app ↗</a> <a href="https://github.com/CamdenWade/NFL-Scouting-Report-App" target="_blank" rel="noopener noreferrer">Repository ↗</a></span></p></aside></article></main><footer><div class="wrap foot-inner"><span>© Camden Wade · Sports Analytics & Technology</span><a href="../index.html">Back to home ↑</a></div></footer></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A technical case study of an R Shiny NFL scouting application built from nflverse play-by-play data, with situational analytics, pass-rate modeling, fourth-down analysis, and Quarto reports."><meta name="theme-color" content="#111215"><title>NFL Scouting Report App — Technical Case Study | Camden Wade</title><link rel="stylesheet" href="../assets/style.css?v=nfl-case-study-20261109"></head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html">Camden<span>Wade.</span></a><nav aria-label="Main navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="nav-github" href="https://github.com/CamdenWade" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header><main id="main-content">
+  <section class="study-hero">
+    <div class="wrap study-hero-grid">
+      <div class="study-hero-copy">
+        <a class="back" href="../index.html#projects">← All projects</a>
+        <p class="study-hero-eyebrow">PROJECT CASE STUDY <span aria-hidden="true">/</span> FOOTBALL ANALYTICS</p>
+        <h1>NFL Scouting <span>Report App.</span></h1>
+        <p class="study-deck">Turning NFL play-by-play data into a practical scouting workflow: analyze team tendencies, compare offense and defense profiles, study fourth-down decisions, and generate a customizable report.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://camden-wade.shinyapps.io/NFL-Scouting-Report-App/" target="_blank" rel="noopener noreferrer">Launch the live app ↗</a>
+          <a class="btn outlined" href="https://github.com/CamdenWade/NFL-Scouting-Report-App" target="_blank" rel="noopener noreferrer">View source code ↗</a>
+        </div>
+        <div class="study-hero-tags" aria-label="Project technologies"><span>R</span><span>Shiny / bslib</span><span>nflverse</span><span>ggplot2</span><span>gt</span><span>Quarto</span></div>
+      </div>
+      <figure class="study-cover">
+        <a href="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/overview.png" target="_blank" rel="noopener noreferrer" aria-label="Open the NFL Scouting Report App overview screenshot at full size">
+          <img src="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/overview.png" alt="NFL Scouting Report App overview displaying selectable team filters, passing tendency, EPA per play, and team comparison charts" decoding="async" fetchpriority="high">
+        </a>
+        <figcaption><span class="study-live-dot" aria-hidden="true"></span> ACTUAL APPLICATION SCREENSHOT <span>Overview dashboard ↗</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <nav class="study-contents" aria-label="On this page">
+    <div class="wrap study-contents-inner">
+      <span class="study-contents-label">ON THIS PAGE</span>
+      <a href="#overview">Overview</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#features">Features</a>
+      <a href="#methods">Methods</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#limitations">Limitations</a>
+    </div>
+  </nav>
+
+  <section class="study-section" id="overview" aria-labelledby="overview-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">01 / PROJECT OVERVIEW</p><h2 id="overview-heading">A scouting tool designed around football decisions.</h2></div>
+      <div class="study-overview-grid">
+        <div class="study-prose">
+          <h3>The problem</h3>
+          <p>Raw play-by-play data contains valuable information about offensive identity, defensive performance, and how teams respond to game situations. But transforming those plays into an opposing-team scouting profile requires cleaning data, defining situations, aggregating metrics, and presenting the results in a readable format.</p>
+          <h3>The approach</h3>
+          <p>I built an R Shiny application that lets a user choose an NFL team, season, offensive or defensive perspective, and situation. The app connects team efficiency, pass tendencies, weekly trends, fourth-down behavior, and player contributions in one workflow.</p>
+          <p>It also provides a separate <strong>offense-versus-defense comparison</strong> and a downloadable HTML scouting report, so the analysis can move beyond the dashboard into a shareable document.</p>
+        </div>
+        <aside class="study-fact-card" aria-label="Project details">
+          <h3>Project at a glance</h3>
+          <dl>
+            <div><dt>My role</dt><dd>Independent R / Shiny developer and analyst</dd></div>
+            <div><dt>Data</dt><dd>nflverse NFL play-by-play, seasons 2023–2025</dd></div>
+            <div><dt>Methods</dt><dd>EPA, success rates, situational splits, logistic pass-probability model</dd></div>
+            <div><dt>Primary outputs</dt><dd>Interactive scouting views and downloadable Quarto HTML reports</dd></div>
+            <div><dt>Core tools</dt><dd>R, nflreadr, Shiny, bslib, ggplot2, slider, gt, nflplotR, Quarto</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section-soft" id="workflow" aria-labelledby="workflow-heading">
+    <div class="wrap">
+      <div class="study-heading">
+        <p class="study-kicker">02 / DATA &amp; SCOUTING PIPELINE</p>
+        <h2 id="workflow-heading">From individual plays to scouting insights.</h2>
+        <p>The application builds its analysis datasets separately, then reads processed files at startup. That keeps the interactive experience focused on evaluating teams rather than downloading and preparing play-by-play data during each session.</p>
+      </div>
+      <ol class="study-pipeline">
+        <li><span class="study-step-num">01</span><h3>Load</h3><p>Use <code>nflreadr::load_pbp()</code> to pull 2023–2025 play-by-play data from nflverse.</p></li>
+        <li><span class="study-step-num">02</span><h3>Define context</h3><p>Clean team abbreviations, keep qualifying run/pass plays, and create down, distance, field-zone, score, and time indicators.</p></li>
+        <li><span class="study-step-num">03</span><h3>Calculate</h3><p>Compute EPA, success, explosive-play rates, context-adjusted pass tendency, a separate fourth-down dataset, and player summaries.</p></li>
+        <li><span class="study-step-num">04</span><h3>Communicate</h3><p>Load processed <code>.rds</code> objects into Shiny, filter interactively, visualize findings, and render a matchup report with Quarto.</p></li>
+      </ol>
+      <p class="study-source-note">See the pipeline: <a href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/R/data_prep.R" target="_blank" rel="noopener noreferrer">play-by-play processing ↗</a>, <a href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/R/player_data_prep.R" target="_blank" rel="noopener noreferrer">player summaries ↗</a>, and <a href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/R/metrics.R" target="_blank" rel="noopener noreferrer">scouting metrics ↗</a>.</p>
+    </div>
+  </section>
+
+  <section class="study-section" id="features" aria-labelledby="features-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">03 / APPLICATION WALKTHROUGH</p><h2 id="features-heading">The scouting workflow in action.</h2><p>These screenshots come directly from the application's GitHub repository. The views connect broad team identity to more specific situations, matchups, fourth-down choices, and player contributors.</p></div>
+      <article class="study-feature"><div class="study-feature-copy"><p class="study-kicker">FEATURE 01</p><h3>Build an offense or defense profile</h3><p>The Overview page puts team identity and efficiency measures into context using the selected season, unit, and situation.</p><ul><li>Compare passing tendency, EPA per play, and pass rate over expected (PROE).</li><li>Benchmark selected team measures against same-season league baselines.</li><li>Switch between offensive and defensive perspectives without changing the overall workflow.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/overview.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Overview dashboard and team identity"><img src="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/overview.png" alt="NFL Scouting Report overview tab with team summary, efficiency metrics and passing identity visualizations" loading="lazy" decoding="async"></a><figcaption>Overview dashboard and team identity<span aria-hidden="true">↗</span></figcaption></figure></article>
+      <article class="study-feature study-feature-reverse"><div class="study-feature-copy"><p class="study-kicker">FEATURE 02</p><h3>Compare an offense with an opposing defense</h3><p>Matchup Mode places one team's season-long offensive profile beside another team's defensive profile, highlighting differences in efficiency and tendency.</p><ul><li>Compare pass rate, EPA per play, success rate, explosive-play rate, and PROE.</li><li>Investigate down-by-down differences and rolling EPA patterns.</li><li>Use the selected situation filter to narrow the matchup lens. These are profile comparisons, not predictions of a final score.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/matchup.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Matchup Mode: season-long profile comparison"><img src="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/matchup.png" alt="NFL Scouting Report App Matchup Mode with offense-versus-defense visualizations" loading="lazy" decoding="async"></a><figcaption>Matchup Mode: season-long profile comparison<span aria-hidden="true">↗</span></figcaption></figure></article>
+      <article class="study-feature"><div class="study-feature-copy"><p class="study-kicker">FEATURE 03</p><h3>Study real fourth-down decision distributions</h3><p>Fourth-down behavior needs a different denominator from ordinary offensive play analysis. The app builds a separate dataset that retains punts and field-goal attempts as well as run/pass decisions.</p><ul><li>Show fourth-down play count and average yards to gain.</li><li>Calculate the share of qualifying fourth-down plays on which a team attempted a run or pass.</li><li>Break out go-for-it tendencies by yards-to-go category.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/fourth_down.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Fourth-down tendencies by distance"><img src="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/fourth_down.png" alt="NFL Scouting Report App fourth-down dashboard with go-for-it rate and distance breakdown" loading="lazy" decoding="async"></a><figcaption>Fourth-down tendencies by distance<span aria-hidden="true">↗</span></figcaption></figure></article>
+      <article class="study-feature study-feature-reverse"><div class="study-feature-copy"><p class="study-kicker">FEATURE 04</p><h3>Bring individual players into the scouting picture</h3><p>The Player Layer aggregates play-by-play outcomes for passers, rushers, and receivers, then presents compact tables with player headshots.</p><ul><li>Passers: qualifying plays, EPA per play, and explosive rate.</li><li>Rushers: carries, yards per carry, and EPA per play.</li><li>Receivers: targets, EPA per target, and explosive rate.</li></ul></div><figure class="study-shot"><a href="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/player_layer.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size screenshot: Player-level summaries and headshots"><img src="https://raw.githubusercontent.com/CamdenWade/NFL-Scouting-Report-App/master/assets/screenshots/player_layer.png" alt="NFL Scouting Report App Player Layer tables showing passers, rushers, receivers and player headshots" loading="lazy" decoding="async"></a><figcaption>Player-level summaries and headshots<span aria-hidden="true">↗</span></figcaption></figure></article>
+    </div>
+  </section>
+
+  <section class="study-section study-section-soft" id="methods" aria-labelledby="methods-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">04 / ANALYTICAL METHODS</p><h2 id="methods-heading">The definitions matter as much as the charts.</h2><p>Rather than showing a single team ranking, the app applies explicit rules for play success, game context, passing tendency, and fourth-down decisions.</p></div>
+      <div class="study-method-grid">
+        <article class="study-method-card">
+          <span class="study-method-label">PLAY EFFICIENCY</span>
+          <h3>EPA, success rate, and explosives</h3>
+          <p>The team profiles summarize nflverse expected points added (EPA) and a down-aware success rule. A play is successful if it gains at least 40% of the required yards on first down, 60% on second down, or 100% on third/fourth. Explosive plays are runs of at least 10 yards or passes of at least 20.</p>
+          <pre aria-label="Success rate logic in R"><code>success = case_when(
+  down == 1 &amp; yards_gained &gt;= 0.40 * ydstogo ~ TRUE,
+  down == 2 &amp; yards_gained &gt;= 0.60 * ydstogo ~ TRUE,
+  down %in% c(3, 4) &amp; yards_gained &gt;= ydstogo ~ TRUE,
+  TRUE ~ FALSE
+)</code></pre>
+          <a href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/R/data_prep.R" target="_blank" rel="noopener noreferrer">See the play definitions ↗</a>
+        </article>
+        <article class="study-method-card">
+          <span class="study-method-label">PASS TENDENCY MODEL</span>
+          <h3>Pass rate over expected (PROE)</h3>
+          <p>A binomial logistic regression estimates pass probability given down, yards to go, field position, score differential, quarter, and time remaining in the half. The difference between actual passing behavior and modeled expectation provides a contextual tendency measure.</p>
+          <pre aria-label="Pass probability and PROE in R"><code>pass_model &lt;- glm(
+  is_pass ~ down + ydstogo + yardline_100 +
+    score_diff + qtr + half_seconds_remaining,
+  data = model_data, family = binomial()
+)
+proe_play = is_pass - expected_pass_prob</code></pre>
+          <a href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/R/data_prep.R" target="_blank" rel="noopener noreferrer">Inspect the pass model ↗</a>
+        </article>
+        <article class="study-method-card">
+          <span class="study-method-label">SITUATIONAL &amp; TEMPORAL ANALYSIS</span>
+          <h3>How context shapes team tendencies</h3>
+          <p>Filters include early downs, third downs, red zone, short yardage, two-minute situations, and a defined neutral game state. Weekly trends and a three-week rolling average help show how displayed efficiencies and tendencies vary over a season.</p>
+          <pre aria-label="Neutral situation definition in R"><code>neutral_situation =
+  qtr %in% c(1, 2, 3) &amp;
+  abs(score_diff) &lt;= 8 &amp;
+  down %in% c(1, 2)</code></pre>
+          <a href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/R/helpers.R" target="_blank" rel="noopener noreferrer">See situation filters ↗</a>
+        </article>
+        <article class="study-method-card">
+          <span class="study-method-label">FOURTH-DOWN ANALYSIS</span>
+          <h3>Accounting for the decisions not to go</h3>
+          <p>The standard run/pass dataset cannot estimate a useful go-for-it rate by itself: it excludes punts and field-goal attempts. The fourth-down pipeline therefore retains all four relevant play types and labels run/pass attempts as going for it.</p>
+          <pre aria-label="Fourth down logic in R"><code>filter(
+  down == 4,
+  play_type %in% c("run", "pass",
+                   "punt", "field_goal")
+)
+went_for_it = if_else(
+  play_type %in% c("run", "pass"), 1, 0
+)</code></pre>
+          <a href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/R/metrics.R" target="_blank" rel="noopener noreferrer">Explore fourth-down summaries ↗</a>
+        </article>
+      </div>
+      <div class="study-caution"><strong>How to interpret the models:</strong> PROE is calculated from a model fitted to the included historical plays and scored on those plays. It is a descriptive tendency measure in this application, not a validated prospective play-call forecast. Likewise, the matchup differences are season-profile comparisons rather than game-outcome probabilities.</div>
+    </div>
+  </section>
+
+  <section class="study-section" id="engineering" aria-labelledby="engineering-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">05 / ENGINEERING &amp; PROBLEM SOLVING</p><h2 id="engineering-heading">Turning analysis into a usable product.</h2></div>
+      <div class="study-decision-grid">
+        <article><span class="study-decision-num">01</span><h3>Build once, filter many ways</h3><p><strong>Challenge:</strong> Loading and recomputing multi-season play-by-play data for every interaction would make exploration cumbersome.</p><p><strong>Implementation:</strong> A preprocessing script saves scouting, pass-model, fourth-down, and player-summary objects that Shiny loads from disk. Reactive filters then support the selected team, season, unit, and situation.</p></article>
+        <article><span class="study-decision-num">02</span><h3>Separate fourth-down decisions</h3><p><strong>Challenge:</strong> Filtering only run and pass plays makes every fourth-down entry look like a go-for-it attempt.</p><p><strong>Implementation:</strong> The data pipeline explicitly creates a separate fourth-down table that also includes punts and field goals, enabling more meaningful decision-rate calculations.</p></article>
+        <article><span class="study-decision-num">03</span><h3>Produce a report outside the app</h3><p><strong>Challenge:</strong> A scout or analyst may need to share a matchup summary without asking someone else to reproduce the interactive selections.</p><p><strong>Implementation:</strong> A Shiny download handler passes offense, defense, season, situation, and project directory to a parameterized Quarto report, rendered as HTML in a temporary location.</p></article>
+      </div>
+      <div class="study-report-band">
+        <div><p class="study-kicker">SCOUTING REPORT DELIVERABLE</p><h3>Selected matchup → HTML scouting report.</h3><p>The report includes an executive summary, offense and defense key metrics, matchup comparisons, down-by-down views, and field-zone tendencies. The project repository includes a sample rendered report as well as the Quarto source file.</p></div>
+        <div class="actions"><a class="btn outlined" href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/docs/sample_report.html" target="_blank" rel="noopener noreferrer">Sample report ↗</a><a class="btn outlined" href="https://github.com/CamdenWade/NFL-Scouting-Report-App/blob/master/report/scouting_report.qmd" target="_blank" rel="noopener noreferrer">Quarto source ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section-soft" id="limitations" aria-labelledby="limitations-heading">
+    <div class="wrap">
+      <div class="study-heading"><p class="study-kicker">06 / SCOPE &amp; NEXT STEPS</p><h2 id="limitations-heading">A scouting starting point, not a game simulator.</h2></div>
+      <div class="study-ends-grid">
+        <div class="study-outcome"><h3>What the project demonstrates</h3><p>An end-to-end R analytics workflow that converts multi-season NFL play-by-play data into interpretable team and player views, context-aware passing metrics, fourth-down behavior summaries, and a shareable scouting report.</p><p>It demonstrates the combination of football knowledge, data preparation, statistical modeling, dashboard development, and clear communication required to make analytics usable.</p></div>
+        <div class="study-limitations"><h3>Important limitations</h3><ul>
+          <li><strong>Data period:</strong> The documented build covers 2023–2025, not a continuously updated current-week feed.</li>
+          <li><strong>Modeled tendency:</strong> The pass model is assessed in-sample; its out-of-sample calibration and forecast accuracy are not established here.</li>
+          <li><strong>Small samples:</strong> Specific down/distance or late-game situations may contain relatively few qualifying plays.</li>
+          <li><strong>Matchup interpretation:</strong> Profile gaps are descriptive differences, not causal advantages or predicted game scores.</li>
+          <li><strong>Fourth downs:</strong> Go-for-it rate measures observed run/pass decisions among included fourth-down play types, not whether going for it was optimal.</li>
+        </ul></div>
+      </div>
+      <div class="study-next"><h3>If I were extending this project</h3><p>Next priorities would be an automated season-refresh pipeline, model validation on held-out seasons, small-sample uncertainty displays, injury and personnel context, and a fourth-down expected-value framework that evaluates the consequences of each decision rather than only its frequency.</p></div>
+    </div>
+  </section>
+
+  <section class="study-cta" aria-label="Explore the NFL project">
+    <div class="wrap study-cta-inner">
+      <div><p class="study-kicker">EXPLORE THE WORK</p><h2>From game data to scouting decisions.</h2><p>Try the interactive views or review the full code and report workflow.</p></div>
+      <div class="actions"><a class="btn primary" href="https://camden-wade.shinyapps.io/NFL-Scouting-Report-App/" target="_blank" rel="noopener noreferrer">Open live app ↗</a><a class="btn outlined" href="https://github.com/CamdenWade/NFL-Scouting-Report-App" target="_blank" rel="noopener noreferrer">Browse the code ↗</a></div>
+    </div>
+  </section>
+</main><footer><div class="wrap foot-inner"><span>© Camden Wade · Sports Analytics & Technology</span><a href="../index.html">Back to home ↑</a></div></footer></body></html>
