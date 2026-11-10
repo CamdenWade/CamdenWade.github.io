@@ -1,1 +1,178 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A basketball shot-probability modeling project focused on prediction quality, calibration, and validation across seasons."><meta name="theme-color" content="#111215"><title>Basketball Shot-Make Probability | Camden Wade</title><link rel="stylesheet" href="../assets/style.css?v=orange-20261109"></head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html">Camden<span>Wade.</span></a><nav aria-label="Main navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="nav-github" href="https://github.com/CamdenWade" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header><main><section class="case-hero"><div class="wrap"><a class="back" href="../index.html#projects">← All projects</a><p class="eyebrow">Predictive modeling · Model evaluation</p><h1>Basketball Shot-Make Probability</h1><p>A basketball shot-probability modeling project focused on prediction quality, calibration, and validation across seasons.</p><div class="actions"></div></div></section><article class="case-body wrap"><div class="case-main"><h2>The question</h2><p>How accurately can shot characteristics predict make probability on unseen data?</p><h2>What I built and explored</h2><ul><li>Built a logistic regression baseline with basketball-specific features.</li><li>Compared generalized additive models and XGBoost candidates.</li><li>Evaluated cross-season performance and checked calibration.</li><li>Prioritized leakage prevention and probability quality, not only classification accuracy.</li></ul><h2>Tools and methods</h2><p>R, statistical modeling, cross-validation, calibration, XGBoost</p><h2>Takeaway</h2><p>Model evaluation and calibration matter when probabilities need to be meaningful on future data.</p><p class="note">This case study is a high-level summary. Model outputs, restricted data, and code are not provided publicly here.</p></div><aside class="case-side"><h3>Project at a glance</h3><p><b>Focus</b><span>Predictive modeling · Model evaluation</span></p><p><b>Technology</b><span>R, statistical modeling, cross-validation, calibration, XGBoost</span></p><p><b>Links</b><span> </span></p></aside></article></main><footer><div class="wrap foot-inner"><span>© Camden Wade · Sports Analytics & Technology</span><a href="../index.html">Back to home ↑</a></div></footer></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A technical case study on probabilistic NBA shot modeling in R: feature engineering, season-based validation, calibration, and model selection from logistic regression to XGBoost."><meta name="theme-color" content="#111215"><title>Basketball Shot-Make Probability — Technical Case Study | Camden Wade</title><link rel="stylesheet" href="../assets/style.css?v=basketball-case-study-20261110"></head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html">Camden<span>Wade.</span></a><nav aria-label="Main navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="nav-github" href="https://github.com/CamdenWade" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header><main id="main-content">
+<section class="study-hero shot-study-hero">
+  <div class="wrap study-hero-grid">
+    <div class="study-hero-copy">
+      <a class="back" href="../index.html#projects">← All projects</a>
+      <p class="study-hero-eyebrow">PROJECT CASE STUDY <span aria-hidden="true">/</span> BASKETBALL MODELING</p>
+      <h1>Basketball <span>Shot-Make Probability.</span></h1>
+      <p class="study-deck">Estimating the probability of a made shot—not just predicting make or miss—using shot context, player movement, defensive pressure, and careful season-to-season validation.</p>
+      <div class="actions">
+        <a class="btn primary" href="#approach">Explore the modeling approach ↗</a>
+        <a class="btn outlined" href="#evaluation">See how I evaluated models</a>
+      </div>
+      <div class="study-hero-tags" aria-label="Technical topics"><span>R</span><span>Feature engineering</span><span>GAM</span><span>XGBoost</span><span>Log-loss</span><span>Calibration</span></div>
+    </div>
+    <figure class="shot-cover">
+      <div class="shot-cover-head"><span><i class="shot-cover-dot" aria-hidden="true"></i> SHOT PROBABILITY / MODEL DESIGN</span><span>01 — COURT CONTEXT</span></div>
+      <svg class="shot-court-svg" viewBox="0 0 640 390" role="img" aria-labelledby="court-title court-desc">
+        <title id="court-title">Conceptual half-court visualization</title>
+        <desc id="court-desc">A stylized half-court showing the basket, three-point arc, a shooter, and a nearby defender. It illustrates shot geometry and defensive proximity without plotting actual player-tracking data.</desc>
+        <defs>
+          <pattern id="shotGrid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-opacity=".06" stroke-width="1"/></pattern>
+          <linearGradient id="shotCourtFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#32261e"/><stop offset="1" stop-color="#17191c"/></linearGradient>
+        </defs>
+        <rect width="640" height="390" rx="12" fill="url(#shotCourtFade)"/>
+        <rect width="640" height="390" rx="12" fill="url(#shotGrid)"/>
+        <g fill="none" stroke="#e6dcd1" stroke-opacity=".6" stroke-width="2.5">
+          <path d="M35 22 H605 V365 H35 Z"/>
+          <path d="M240 365 V235 H400 V365"/>
+          <path d="M240 235 A80 80 0 0 1 400 235"/>
+          <path d="M245 365 V322 H395 V365"/>
+          <circle cx="320" cy="335" r="14"/>
+          <path d="M285 350 H355"/>
+          <path d="M80 365 V240 A240 240 0 0 1 560 240 V365"/>
+        </g>
+        <g stroke="#ffad66" stroke-width="2.5" stroke-dasharray="7 8" fill="none">
+          <path d="M440 135 Q380 205 330 310"/>
+          <path d="M440 135 Q464 160 483 185" stroke="#f3d4b1" opacity=".7"/>
+        </g>
+        <circle cx="440" cy="135" r="34" fill="#ff963d" fill-opacity=".14" stroke="#ff963d" stroke-opacity=".7"/>
+        <circle cx="440" cy="135" r="10" fill="#ff963d"/>
+        <circle cx="483" cy="185" r="9" fill="#f4e8db"/>
+        <path d="M440 135 L483 185" stroke="#f4e8db" stroke-width="1.4" stroke-dasharray="3 4" opacity=".65"/>
+        <g fill="#f6e6d9" font-family="Arial,sans-serif" font-weight="700" font-size="13">
+          <text x="453" y="115">Shooter</text>
+          <text x="496" y="209">Defender</text>
+          <text x="343" y="306" font-size="11" opacity=".85">Basket</text>
+        </g>
+      </svg>
+      <div class="shot-cover-metrics">
+        <span><strong>SHOT GEOMETRY</strong>Distance + location</span>
+        <span><strong>DEFENSIVE CONTEXT</strong>Proximity + movement</span>
+        <span><strong>GAME STATE</strong>Clock + shot type</span>
+      </div>
+      <figcaption>Conceptual illustration of feature categories. No supplied tracking data or model predictions are displayed.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<nav class="study-contents" aria-label="On this page">
+  <div class="wrap study-contents-inner">
+    <span class="study-contents-label">ON THIS PAGE</span>
+    <a href="#overview">Overview</a><a href="#approach">Approach</a><a href="#features">Features</a><a href="#evaluation">Evaluation</a><a href="#engineering">Engineering</a><a href="#takeaways">Takeaways</a>
+  </div>
+</nav>
+
+<section class="study-section" id="overview" aria-labelledby="overview-heading">
+<div class="wrap">
+  <div class="study-heading"><p class="study-kicker">01 / OBJECTIVE</p><h2 id="overview-heading">A probability should mean something.</h2></div>
+  <div class="study-overview-grid">
+    <div class="study-prose">
+      <h3>The modeling question</h3>
+      <p>Given the observable context of a basketball shot at release, how accurately can a model estimate the probability that it goes in? A useful answer must distinguish an open attempt near the rim from a heavily defended long-range shot while avoiding unjustified confidence.</p>
+      <h3>Why this is more than classification</h3>
+      <p>The aim was to generate a probability between zero and one for every attempt. I therefore prioritized <strong>log-loss, calibration, and transfer across seasons</strong> instead of using classification accuracy alone to choose a model.</p>
+      <p>This was an independent technical modeling exercise using a supplied NBA shot-tracking dataset. It focused on feature design, repeatable evaluation, and a defensible final prediction pipeline.</p>
+    </div>
+    <aside class="study-fact-card" aria-label="Project at a glance">
+      <h3>Project at a glance</h3>
+      <dl>
+        <div><dt>My role</dt><dd>Independent sports data science and R modeling work</dd></div>
+        <div><dt>Problem type</dt><dd>Binary-outcome probability estimation</dd></div>
+        <div><dt>Data scale</dt><dd>425,000+ labeled training attempts; additional unlabeled testing attempts</dd></div>
+        <div><dt>Model families</dt><dd>Logistic regression, generalized additive models, gradient boosting</dd></div>
+        <div><dt>Primary metric</dt><dd>Log-loss, supported by calibration diagnostics</dd></div>
+        <div><dt>Tools</dt><dd>R, tidyverse, ggplot2, GAMs, XGBoost, Matrix</dd></div>
+      </dl>
+    </aside>
+  </div>
+</div>
+</section>
+
+<section class="study-section study-section-soft" id="approach" aria-labelledby="approach-heading">
+<div class="wrap">
+  <div class="study-heading"><p class="study-kicker">02 / DEVELOPMENT WORKFLOW</p><h2 id="approach-heading">Build the evidence before choosing the model.</h2><p>To make comparisons meaningful, I followed a progression from basic data checks to more flexible modeling approaches, keeping season-based validation central to the process.</p></div>
+  <ol class="study-pipeline">
+    <li><span class="study-step-num">01</span><h3>Audit</h3><p>Inspect types, missing values, identifiers, shot distributions, categorical levels, and potential leakage.</p></li>
+    <li><span class="study-step-num">02</span><h3>Engineer</h3><p>Construct interpretable geometry, shot difficulty, defensive proximity, and movement features.</p></li>
+    <li><span class="study-step-num">03</span><h3>Benchmark</h3><p>Compare a constant baseline, logistic models, GAMs, and restrained XGBoost candidates.</p></li>
+    <li><span class="study-step-num">04</span><h3>Validate</h3><p>Evaluate held-out seasons, calibration, feature groups, and random-split sensitivity before final refitting.</p></li>
+  </ol>
+  <div class="shot-protocol">
+    <div><span class="shot-protocol-index">PRIMARY VALIDATION</span><h3>Season-held-out evaluation</h3><p>Train on one season and assess on another, then reverse the comparison where feasible. This tests generalization across a time boundary rather than relying entirely on randomly mixed shots from both seasons.</p></div>
+    <div class="shot-protocol-separator" aria-hidden="true">≠</div>
+    <div><span class="shot-protocol-index">SENSITIVITY CHECK</span><h3>Fixed random split</h3><p>A conventional random split provides a comparison, but can look optimistic when the same players and environments appear in both sets. The season-based results carry more weight in model selection.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="study-section" id="features" aria-labelledby="features-heading">
+<div class="wrap">
+  <div class="study-heading"><p class="study-kicker">03 / FEATURE ENGINEERING</p><h2 id="features-heading">Translate basketball context into model inputs.</h2><p>The final feature set described shot difficulty and context without depending on player identity as a shortcut. The goal was a model whose learned relationships could transfer more plausibly to another season.</p></div>
+  <div class="shot-feature-grid">
+    <article class="shot-feature-card"><span class="shot-feature-symbol" aria-hidden="true">⌖</span><h3>Court geometry</h3><p>Distance from the rim, court coordinates, shooting angle, and three-point status help represent how location shapes shot difficulty.</p><div class="shot-feature-tags"><span>Distance</span><span>Location</span><span>Angle</span></div></article>
+    <article class="shot-feature-card"><span class="shot-feature-symbol" aria-hidden="true">◉</span><h3>Shot profile</h3><p>Shot type and possession state distinguish attempts with different mechanics and context, such as layups, jumpers, and transition possessions.</p><div class="shot-feature-tags"><span>Shot type</span><span>Game state</span><span>Three-point</span></div></article>
+    <article class="shot-feature-card"><span class="shot-feature-symbol" aria-hidden="true">↗</span><h3>Defensive pressure</h3><p>Nearest-defender distance, contester counts, and distances to identified contesters describe the level of pressure around release.</p><div class="shot-feature-tags"><span>Proximity</span><span>Contesters</span><span>Coverage</span></div></article>
+    <article class="shot-feature-card"><span class="shot-feature-symbol" aria-hidden="true">↝</span><h3>Movement and time</h3><p>Defender approach snapshots, derived closing-speed proxies, shooter speed, dribbles, and the shot clock add temporal information beyond a static snapshot.</p><div class="shot-feature-tags"><span>Closeouts</span><span>Speed</span><span>Shot clock</span></div></article>
+  </div>
+  <div class="study-caution"><strong>Modeling decision:</strong> I left shooter, team, and defender identifiers out of the final tree model feature set. This reduced reliance on potentially brittle identity-specific patterns when assessing unseen-season performance.</div>
+</div>
+</section>
+
+<section class="study-section study-section-soft" id="evaluation" aria-labelledby="evaluation-heading">
+<div class="wrap">
+  <div class="study-heading"><p class="study-kicker">04 / MODEL COMPARISON &amp; VALIDATION</p><h2 id="evaluation-heading">Select the model that holds up on future data.</h2><p>I used an interpretable model ladder to test whether additional flexibility improved probabilistic prediction in cross-season evaluation—not just performance on training observations.</p></div>
+  <div class="shot-model-ladder" aria-label="Model comparison progression">
+    <article><span>01 / REFERENCE</span><h3>Constant prediction</h3><p>A sanity-check baseline using the overall make rate.</p></article>
+    <article><span>02 / INTERPRETABLE</span><h3>Logistic regression</h3><p>A transparent baseline with shot and context features.</p></article>
+    <article><span>03 / NONLINEAR</span><h3>Generalized additive model</h3><p>Flexible, explainable relationships for distance and other continuous inputs.</p></article>
+    <article class="shot-model-selected"><span>04 / SELECTED</span><h3>Moderate XGBoost</h3><p>Regularized boosted trees capture nonlinear interactions with internal early stopping.</p><strong>Final model family</strong></article>
+  </div>
+  <div class="study-method-grid shot-evaluation-grid">
+    <article class="study-method-card"><span class="study-method-label">PRIMARY SCORING RULE</span><h3>Log-loss</h3><p>Log-loss penalizes confident incorrect probabilities. It lets a model be judged on the quality of its estimated chances, not merely whether the predicted class matches an outcome.</p><div class="shot-formula" aria-label="Binary log loss formula">−[ y log(p) + (1 − y) log(1 − p) ]</div><p class="shot-mini-note">Lower is better. The site intentionally does not display confidential model scores.</p></article>
+    <article class="study-method-card"><span class="study-method-label">PROBABILITY QUALITY</span><h3>Calibration</h3><p>I compared predicted make probabilities with observed make rates across prediction bins and checked average prediction levels. A probability around 60% should correspond to approximately six makes in ten over many comparable attempts.</p><div class="shot-calibration-schematic"><div class="shot-calibration-diagonal" aria-hidden="true"></div><span class="shot-calibration-y">Observed frequency ↑</span><span class="shot-calibration-x">Predicted probability →</span><span class="shot-calibration-text">Perfect-calibration reference</span></div><p class="shot-mini-note">Explanatory reference line, not an actual model calibration plot.</p></article>
+    <article class="study-method-card"><span class="study-method-label">ROBUSTNESS</span><h3>Feature-group ablations</h3><p>Removing groups of inputs helped assess which information mattered to validation performance. Shot type and difficulty, along with defensive context, were important areas to investigate; smaller effects required careful interpretation.</p><p>I treated feature contribution as a diagnostic, not proof of a causal effect on shooting.</p></article>
+    <article class="study-method-card"><span class="study-method-label">MODEL SELECTION</span><h3>Controlled boosting</h3><p>I compared restrained XGBoost configurations, chose boosting rounds from an internal holdout, and evaluated on separate season folds. I also examined whether combining GAM and boosting predictions added value.</p><p>The final workflow used the selected moderate XGBoost configuration rather than a more complex blend.</p></article>
+  </div>
+</div>
+</section>
+
+<section class="study-section" id="engineering" aria-labelledby="engineering-heading">
+<div class="wrap">
+  <div class="study-heading"><p class="study-kicker">05 / TECHNICAL CHALLENGES</p><h2 id="engineering-heading">Make the modeling pipeline reproducible.</h2></div>
+  <div class="study-decision-grid">
+    <article><span class="study-decision-num">01</span><h3>Trajectory and missingness</h3><p><strong>Challenge:</strong> Defensive approach measurements and contester fields require careful parsing and consistent treatment of missing entries.</p><p><strong>Approach:</strong> Engineer release-time proximity and movement summaries while retaining meaningful missingness and avoiding ungrounded values.</p></article>
+    <article><span class="study-decision-num">02</span><h3>Consistent features across seasons</h3><p><strong>Challenge:</strong> Categorical shot and possession states must map to the same model columns during training and testing.</p><p><strong>Approach:</strong> Use aligned factor levels and sparse design matrices; check that train and test feature names and ordering agree.</p></article>
+    <article><span class="study-decision-num">03</span><h3>Safe probability submission</h3><p><strong>Challenge:</strong> Scoring requires a valid probability for every unlabeled shot without silently changing row order or identifiers.</p><p><strong>Approach:</strong> Refit the chosen model, check predictions are finite and strictly between zero and one, and validate that the output preserves the template's columns and shot ordering.</p></article>
+  </div>
+  <div class="study-report-band">
+    <div><p class="study-kicker">FINAL HANDOFF</p><h3>A validated prediction pipeline, not just a fitted model.</h3><p>The final stage selected boosting rounds using an internal holdout, refitted on all available training shots, generated probabilities for the testing set, and checked output structure. This illustrates the engineering and quality-assurance work surrounding model delivery.</p></div>
+    <a class="btn outlined" href="#takeaways">Read project takeaways ↓</a>
+  </div>
+</div>
+</section>
+
+<section class="study-section study-section-soft" id="takeaways" aria-labelledby="takeaways-heading">
+<div class="wrap">
+  <div class="study-heading"><p class="study-kicker">06 / REFLECTIONS</p><h2 id="takeaways-heading">What the project demonstrates—and what remains unknown.</h2></div>
+  <div class="study-ends-grid">
+    <div class="study-outcome"><h3>Skills demonstrated</h3><p>This work combined basketball-specific feature engineering, interpretable baselines, nonlinear predictive modeling, season-based validation, probability calibration, and rigorous output checks.</p><p>The central lesson was to favor a <strong>well-tested probability estimate</strong> over a model that merely appears accurate on a convenient random split.</p></div>
+    <div class="study-limitations"><h3>Limitations and responsible interpretation</h3><ul>
+      <li><strong>Generalization:</strong> Season holdouts are valuable, but cannot guarantee future performance under changing league and player conditions.</li>
+      <li><strong>Available inputs:</strong> Some relevant shot mechanics and context may not be captured by the supplied tracking features.</li>
+      <li><strong>Calibration:</strong> Reliable aggregate probabilities do not imply precise individual-shot certainty.</li>
+      <li><strong>Scope:</strong> No claim is made about deployment by an NBA team or evaluation on a private external benchmark.</li>
+    </ul></div>
+  </div>
+  <div class="study-next"><h3>What I would explore next</h3><p>With appropriate access and permission, I would test longer-term season drift, compare calibration methods on fresh held-out data, examine uncertainty in rare shot categories, and further investigate how defender movement changes predicted shot difficulty.</p></div>
+  <div class="shot-disclosure"><span class="shot-disclosure-icon" aria-hidden="true">i</span><div><strong>Public portfolio scope</strong><p>This case study describes the analytical workflow at a high level. The original tracking dataset, individual-shot predictions, full project source code, proprietary model outputs, and unredacted diagnostic figures are not published here. The court and calibration visuals above are explanatory illustrations, not plots of supplied data or measured results.</p></div></div>
+</div>
+</section>
+
+<section class="study-cta" aria-label="Explore related projects">
+  <div class="wrap study-cta-inner">
+    <div><p class="study-kicker">MORE SPORTS ANALYTICS</p><h2>See how I turn analysis into usable tools.</h2><p>Explore my public baseball and football applications, including source code, screenshots, and technical walkthroughs.</p></div>
+    <div class="actions"><a class="btn primary" href="mlb-analytics-hub.html">MLB Analytics HUB ↗</a><a class="btn outlined" href="nfl-scouting-report.html">NFL Scouting App ↗</a></div>
+  </div>
+</section>
+</main><footer><div class="wrap foot-inner"><span>© Camden Wade · Sports Analytics & Technology</span><a href="../index.html">Back to home ↑</a></div></footer></body></html>
