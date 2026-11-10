@@ -227,3 +227,55 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f28a2d; outline-offs
 @media (prefers-reduced-motion:reduce) {
   .study-cover img,.study-shot img { transition:none; }
 }
+
+
+/* Basketball Shot-Make Probability case study: illustrative, data-free visuals */
+.shot-study-hero { background: radial-gradient(circle at 80% 20%,#5a3520 0%,transparent 44%),linear-gradient(135deg,#101114 0%,#272126 100%); }
+.shot-cover { min-width:0; margin:0; background:#202124; color:#f7f2ed; border:1px solid #765b47; border-radius:18px; padding:14px; box-shadow:0 22px 55px #0807066e; }
+.shot-cover-head { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:6px 5px 16px; font-size:10px; font-weight:850; letter-spacing:1.1px; color:#e3d4c4; }
+.shot-cover-head span:last-child { color:#ffb882; white-space:nowrap; }
+.shot-cover-dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:#ff963d; margin-right:6px; }
+.shot-court-svg { display:block; width:100%; height:auto; border-radius:10px; border:1px solid #51453c; }
+.shot-cover-metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:14px 0 7px; }
+.shot-cover-metrics span { font-size:10px; color:#d5c8bc; line-height:1.45; }
+.shot-cover-metrics strong { display:block; font-size:9px; letter-spacing:.7px; color:#ffb37b; }
+.shot-cover figcaption { color:#aaa09a; font-size:11px; line-height:1.5; padding:8px 3px 0; }
+.shot-protocol { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:24px; margin-top:28px; background:#1f2023; color:#fff; border-radius:14px; padding:26px; }
+.shot-protocol-index { font-size:10px; color:#ffae73; letter-spacing:1.4px; font-weight:850; }
+.shot-protocol h3 { font-size:20px; margin:9px 0 11px; }
+.shot-protocol p { font-size:13px; color:#d8d3cf; line-height:1.75; margin:0; }
+.shot-protocol-separator { font-size:34px; color:#ff963d; font-weight:850; }
+.shot-feature-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.shot-feature-card { background:#fff; border:1px solid #e9e1da; border-radius:14px; padding:28px; min-width:0; }
+.shot-feature-card h3 { font-size:22px; margin:10px 0 12px; }
+.shot-feature-card p { font-size:14px; color:#5c5752; line-height:1.75; }
+.shot-feature-symbol { display:flex; width:42px; height:42px; border-radius:10px; color:#b24a00; background:#fff0e3; align-items:center; justify-content:center; font-size:28px; font-weight:850; }
+.shot-feature-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:17px; }
+.shot-feature-tags span { padding:5px 9px; font-size:11px; font-weight:750; color:#8f3d09; border:1px solid #f2d8c4; background:#fff8f1; border-radius:30px; }
+.shot-feature-grid+.study-caution { margin-top:24px; }
+.shot-model-ladder { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:13px; margin:0 0 27px; }
+.shot-model-ladder article { position:relative; border:1px solid #e5dcd4; padding:22px 20px; border-radius:12px; background:white; min-width:0; }
+.shot-model-ladder article::before { content:""; display:block; height:4px; width:45px; border-radius:30px; background:#e5d0bf; margin-bottom:15px; }
+.shot-model-ladder article>span { display:block; color:#a74700; font-size:10px; letter-spacing:1.1px; font-weight:850; margin-bottom:10px; }
+.shot-model-ladder h3 { font-size:19px; line-height:1.25; margin:0 0 11px; }
+.shot-model-ladder p { font-size:13px; line-height:1.65; color:#625e59; margin:0; }
+.shot-model-ladder .shot-model-selected { background:#1d1e22; color:#fff; border-color:#aa5625; box-shadow:0 10px 24px #27150729; }
+.shot-model-ladder .shot-model-selected::before { background:#ff963d; }
+.shot-model-selected>span { color:#ffb075!important; }
+.shot-model-selected p { color:#d9d2cd; }
+.shot-model-selected strong { display:inline-block; margin-top:16px; font-size:10px; border:1px solid #ffb785; border-radius:5px; color:#ffb785; padding:5px 8px; text-transform:uppercase; letter-spacing:.6px; }
+.shot-formula { font-size:clamp(16px,2.2vw,24px); letter-spacing:.1px; border-radius:10px; background:#222326; color:#fff1e2; padding:24px 15px; text-align:center; margin:15px 0 12px; overflow-wrap:anywhere; font-family:Georgia,serif; }
+.shot-mini-note { font-size:11px!important; color:#827870!important; line-height:1.5!important; }
+.shot-calibration-schematic { position:relative; height:172px; background:linear-gradient(to right,transparent calc(25% - 1px),#e9e2dc 25%,transparent calc(25% + 1px)),linear-gradient(to top,transparent calc(25% - 1px),#e9e2dc 25%,transparent calc(25% + 1px)),#fffaf5; border-left:2px solid #806b5d; border-bottom:2px solid #806b5d; overflow:hidden; margin:14px 0 11px; }
+.shot-calibration-diagonal { position:absolute; inset:0; background:linear-gradient(135deg,transparent 49.4%,#ba6325 49.5%,#ba6325 50.5%,transparent 50.6%); transform:scaleY(-1); }
+.shot-calibration-y,.shot-calibration-x { position:absolute; padding:4px 5px; background:#fffaf5db; color:#4d4742; font-size:10px; font-weight:700; }
+.shot-calibration-y { top:3px; left:5px; }
+.shot-calibration-x { bottom:3px; right:5px; }
+.shot-calibration-text { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:#fff8f0; color:#8d450d; font-size:10px; padding:5px 7px; border:1px solid #efd1b8; border-radius:5px; white-space:nowrap; }
+.shot-disclosure { display:flex; align-items:flex-start; gap:16px; border:1px solid #f0d7c5; background:#fffaf4; margin-top:24px; padding:22px 25px; border-radius:12px; }
+.shot-disclosure-icon { display:flex; align-items:center; justify-content:center; flex:0 0 28px; height:28px; color:#fff; background:#a74700; border-radius:100%; font-size:17px; font-weight:850; font-family:Georgia,serif; }
+.shot-disclosure strong { display:block; color:#39291d; margin-bottom:6px; }
+.shot-disclosure p { font-size:13px; line-height:1.75; color:#625850; margin:0; }
+@media(max-width:940px){.shot-model-ladder{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:800px){.shot-protocol{grid-template-columns:1fr;gap:14px;}.shot-protocol-separator{font-size:24px;}.shot-feature-grid{grid-template-columns:1fr;}}
+@media(max-width:540px){.shot-cover-head{flex-wrap:wrap;}.shot-cover-metrics{grid-template-columns:1fr;}.shot-model-ladder{grid-template-columns:1fr;}.shot-feature-card{padding:22px;}.shot-disclosure{padding:18px;}.shot-calibration-text{font-size:9px;}}
