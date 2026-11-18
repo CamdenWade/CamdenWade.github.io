@@ -3,14 +3,14 @@
 <title id="title">Portfolio contribution brief preview - Penn State vs. Minnesota</title>
 <desc id="desc">Illustrated first-page preview of Camden Wade's contribution brief, with the publication, role, and skills that are included in the downloadable PDF.</desc>
 <rect width="612" height="792" fill="#ffffff"/>
-<rect x="0" y="0" width="612" height="146" fill="#111215"/>
-<rect x="0" y="0" width="8" height="146" fill="#ff963d"/>
+<rect x="0" y="0" width="612" height="174" fill="#111215"/>
+<rect x="0" y="0" width="8" height="174" fill="#ff963d"/>
 <text x="40" y="36" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="700" letter-spacing="1" fill="#ffb780">CAMDEN WADE / SPORTS COMMUNICATIONS PORTFOLIO</text>
 <g font-family="Arial,Helvetica,sans-serif"><text x="40" y="88" font-size="24" font-weight="700" fill="#ffffff"><tspan x="40" dy="0">Penn State vs. Minnesota</tspan></text></g>
 <text x="40" y="124" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#ded9d4" letter-spacing=".3">MEN'S BASKETBALL / FEBRUARY 1, 2026</text>
-<text x="40" y="187" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#ac4d0e" letter-spacing="1">LIVE STATISTICS / GAME REPORT</text>
-<text x="40" y="237" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#242326">OFFICIAL PENN STATE PUBLICATION</text>
-<g font-family="Arial,Helvetica,sans-serif"><text x="40" y="260" font-size="14" font-weight="400" fill="#393736"><tspan x="40" dy="0">Penn State Men's Basketball Box Score</tspan></text></g>
+<text x="40" y="210" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#ac4d0e" letter-spacing="1">LIVE STATISTICS / GAME REPORT</text>
+<text x="40" y="248" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#242326">OFFICIAL PENN STATE PUBLICATION</text>
+<g font-family="Arial,Helvetica,sans-serif"><text x="40" y="277" font-size="14" font-weight="400" fill="#393736"><tspan x="40" dy="0">Penn State Men's Basketball Box Score</tspan></text></g>
 <rect x="40" y="327" width="532" height="1" fill="#eae5df"/>
 <text x="40" y="371" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#242326">MY CONTRIBUTION</text>
 <text x="40" y="395" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#9e470b">Genius Sports live-statistics support</text>
