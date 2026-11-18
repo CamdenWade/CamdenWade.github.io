@@ -704,33 +704,34 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f28a2d; outline-offs
 }
 
 
-/* Source-document previews: crops of user-provided Penn State screenshots and a box-score PDF */
+/* Source publication thumbnails: high-quality independent WebP images, no sprite scaling */
 .published-work-thumbnail {
   min-height:0;
   gap:12px;
 }
-.published-work-source-view {
+.published-work-source-frame {
   display:block;
-  flex:0 0 auto;
   width:100%;
   aspect-ratio:25 / 16;
   border-radius:7px;
-  background-color:#fff;
-  background-image:url("work-samples/penn-state-source-previews.png");
-  background-repeat:no-repeat;
-  background-size:200% 200%;
+  overflow:hidden;
+  background:#fff;
   border:1px solid #d8d2cc;
   box-shadow:0 11px 25px #0007;
-  transition:transform .18s ease,box-shadow .18s ease;
+  transition:transform .18s ease, box-shadow .18s ease;
 }
-.published-work-thumbnail:hover .published-work-source-view {
+.published-work-source-image {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  image-rendering:auto;
+}
+.published-work-thumbnail:hover .published-work-source-frame {
   transform:translateY(-3px);
   box-shadow:0 15px 29px #0009;
 }
-.published-work-source-view--recap { background-position:0% 0%; }
-.published-work-source-view--boxscore { background-position:100% 0%; }
-.published-work-source-view--bio { background-position:0% 100%; }
-.published-work-source-view--quotes { background-position:100% 100%; }
 .published-work-thumbnail-bottom {
   padding:0 2px;
 }
@@ -739,9 +740,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f28a2d; outline-offs
 }
 @media(max-width:540px) {
   .published-work-thumbnail { min-height:0; }
-  .published-work-source-view { border-radius:5px; }
+  .published-work-source-frame { border-radius:5px; }
 }
 @media(prefers-reduced-motion:reduce) {
-  .published-work-source-view { transition:none; }
-  .published-work-thumbnail:hover .published-work-source-view { transform:none; }
+  .published-work-source-frame { transition:none; }
+  .published-work-thumbnail:hover .published-work-source-frame { transform:none; }
 }
