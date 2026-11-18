@@ -475,3 +475,68 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f28a2d; outline-offs
 @media(prefers-reduced-motion:reduce) {
   .career-path-card { transition:none; }
 }
+
+
+/* Published Penn State work samples: original source links + self-authored PDF summaries */
+.published-work-intro { display:flex; align-items:flex-start; gap:14px; padding:19px 23px; margin:0 0 27px; border-radius:10px; border:1px solid #edddcf; background:#fff8f1; }
+.published-work-intro-icon { display:flex; align-items:center; justify-content:center; flex:0 0 26px; height:26px; border-radius:50%; background:#a74700; color:white; font-family:Georgia,serif; font-weight:800; }
+.published-work-intro p { margin:0; font-size:13px; line-height:1.74; color:#5b5149; }
+.published-work-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.published-work-card { min-width:0; overflow:hidden; border-radius:15px; border:1px solid #e7ded6; background:#fff; box-shadow:0 11px 29px #24180f10; }
+.published-work-visual { padding:18px; background:linear-gradient(130deg,#1b1d20,#383029); }
+.published-work-visual-top { display:flex; justify-content:space-between; gap:12px; align-items:center; color:#f5bb92; font-size:10px; font-weight:850; letter-spacing:.75px; }
+.published-work-visual-top span:last-child { white-space:nowrap; color:#e9dacd; }
+.published-work-paper { min-height:180px; display:flex; flex-direction:column; justify-content:center; margin:20px 0 14px; padding:24px; background:#fffdfa; color:#262323; border-radius:5px; border-left:5px solid #ef8a43; }
+.published-work-paper>span { color:#8a5b40; font-size:10px; letter-spacing:.65px; font-weight:800; }
+.published-work-paper h4 { color:#272426; font-size:clamp(18px,2vw,24px); line-height:1.24; letter-spacing:-.5px; margin:15px 0 12px; }
+.published-work-rule { height:1px; background:#e0d9d3; margin:0 0 12px; }
+.published-work-focus { font-size:10px; letter-spacing:.8px; font-weight:850; color:#ffb882; text-align:right; }
+.published-work-body { padding:26px; }
+.published-work-kicker { color:#a34b0e; font-size:10px; letter-spacing:1.05px; font-weight:850; margin:0 0 10px; }
+.published-work-kicker span { padding:0 5px; color:#b79885; }
+.published-work-body h3 { font-size:clamp(20px,2.2vw,26px); line-height:1.2; margin:0 0 13px; }
+.published-work-description { color:#615c59; font-size:14px; line-height:1.75; margin-bottom:18px; }
+.published-work-contribution { padding:17px 18px; background:#faf7f3; border-radius:8px; border-left:3px solid #da782c; }
+.published-work-contribution strong { display:block; color:#763608; font-size:12px; margin-bottom:7px; }
+.published-work-contribution p { margin:0; font-size:13px; line-height:1.76; color:#4e4946; }
+.published-work-skills { padding:14px 0; margin:0; font-size:12px; color:#68615b; line-height:1.75; }
+.published-work-skills strong { display:block; margin-bottom:4px; color:#3b3836; }
+.published-work-actions { display:flex; flex-direction:column; gap:9px; margin:6px 0 18px; }
+.published-work-actions a { display:block; border-radius:7px; padding:11px 14px; font-size:12px; font-weight:850; line-height:1.5; text-align:center; transition:background .15s ease,color .15s ease; }
+.published-work-primary { background:#242427; color:#fff; }
+.published-work-primary:hover { background:#444041; color:#fff; text-decoration:none; }
+.published-work-secondary { border:1px solid #d1aa8a; color:#8c3f08; background:#fff; }
+.published-work-secondary:hover { color:#793201; background:#fff6ef; text-decoration:none; }
+.published-work-pdf { border-top:1px solid #eee4dc; padding-top:13px; }
+.published-work-pdf summary { display:flex; justify-content:space-between; gap:12px; cursor:pointer; color:#854009; font-size:12px; line-height:1.5; font-weight:850; list-style:none; padding:5px 0; }
+.published-work-pdf summary::-webkit-details-marker { display:none; }
+.published-work-pdf summary:focus-visible { outline:2px solid #b95c1a; outline-offset:3px; }
+.published-work-pdf[open] summary span { transform:rotate(45deg); }
+.published-work-pdf summary span { font-size:18px; line-height:1; }
+.published-work-pdf-frame { margin-top:11px; background:#f2eee9; padding:8px; border-radius:8px; }
+.published-work-pdf-frame object { border:1px solid #e2dad2; background:#fff; display:block; width:100%; max-height:420px; }
+.published-work-pdf-frame p { padding:12px; font-size:13px; }
+.published-work-pdf-frame a { color:#a74700; font-weight:800; }
+.published-work-note { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:25px; background:#fff; border:1px solid #e7ddd5; border-radius:12px; }
+.published-work-note>div { flex:1; }
+.published-work-note strong { display:block; color:#2d2825; margin-bottom:9px; }
+.published-work-note p { font-size:14px; color:#5e5853; line-height:1.77; margin:0; }
+.published-work-note-link { flex:0 0 auto; color:#a74700; font-size:13px; font-weight:850; }
+.career-event-highlights { margin:38px 0 24px; }
+.career-event-intro { max-width:830px; margin-bottom:23px; }
+.career-event-intro h3 { font-size:clamp(23px,2.6vw,30px); letter-spacing:-.7px; line-height:1.25; margin:11px 0; }
+.career-event-intro p:not(.study-kicker) { color:#615b56; font-size:14px; line-height:1.75; }
+.career-events-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.career-event-card { position:relative; display:flex; flex-direction:column; min-width:0; background:#fff; border:1px solid #e8ded5; border-top:4px solid #dc812f; border-radius:11px; padding:24px; }
+.career-event-label { color:#9b4810; font-size:10px; line-height:1.6; font-weight:850; letter-spacing:.65px; min-height:30px; }
+.career-event-label span { color:#b7a396; padding:0 3px; }
+.career-event-mark { margin:14px 0; width:44px; height:44px; border:1px solid #efdbc9; border-radius:12px; background:#fff3e8; color:#9e4611; display:flex; justify-content:center; align-items:center; font-size:14px; font-weight:900; }
+.career-event-card h4 { font-size:20px; line-height:1.32; letter-spacing:-.45px; margin:0 0 12px; }
+.career-event-card p { font-size:13px; color:#5b5652; line-height:1.78; flex:1; margin-bottom:18px; }
+.career-event-links { border-top:1px solid #ece4de; padding-top:15px; display:flex; flex-direction:column; gap:9px; }
+.career-event-links a { color:#98450b; font-size:12px; font-weight:800; }
+.career-event-links>span { color:#76675e; font-size:12px; line-height:1.6; }
+@media(max-width:940px) { .career-events-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:760px) { .published-work-grid,.career-events-grid { grid-template-columns:1fr; } .published-work-note { flex-direction:column; align-items:flex-start; } .published-work-note-link { flex:initial; } }
+@media(max-width:540px) { .published-work-paper { padding:19px; min-height:158px; } .published-work-body { padding:20px; } .published-work-intro { padding:17px; } .published-work-visual { padding:13px; } .career-event-card { padding:21px; } }
+@media(prefers-reduced-motion:reduce) { .published-work-actions a { transition:none; } }
