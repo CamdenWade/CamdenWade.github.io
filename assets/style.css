@@ -746,3 +746,58 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f28a2d; outline-offs
   .published-work-source-frame { transition:none; }
   .published-work-thumbnail:hover .published-work-source-frame { transform:none; }
 }
+
+
+/* Public NBA Shot-Make Probability Explorer case study */
+.nba-explorer-hero { background:radial-gradient(circle at 82% 20%,#50301c 0%,transparent 48%),linear-gradient(130deg,#111215,#252125); }
+.nba-hero-figure { min-width:0; padding:13px; background:#252426; border:1px solid #705643; border-radius:16px; margin:0; box-shadow:0 22px 52px #0007; }
+.nba-hero-figure a { display:block; background:#fff; border-radius:8px; overflow:hidden; }
+.nba-hero-figure img { display:block; width:100%; max-height:370px; object-fit:contain; }
+.nba-hero-figure figcaption { display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:14px 4px 3px; color:#eee5df; font-size:10px; font-weight:800; letter-spacing:.6px; }
+.nba-hero-figure figcaption span:last-child { margin-left:auto; color:#ffb37c; font-size:11px; letter-spacing:0; }
+.nba-metrics-band { background:#242326; color:#fff; border-top:1px solid #4c3830; }
+.nba-metrics-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; }
+.nba-metrics-grid>div { padding:27px 20px; border-right:1px solid #ffffff26; }
+.nba-metrics-grid>div:last-child { border-right:0; }
+.nba-metrics-grid span { display:block; font-size:10px; font-weight:850; letter-spacing:1.1px; color:#ffb783; }
+.nba-metrics-grid strong { display:block; font-size:clamp(24px,2.9vw,36px); margin:10px 0 4px; letter-spacing:-1.2px; font-variant-numeric:tabular-nums; }
+.nba-metrics-grid small { display:block; font-size:11px; color:#ddd3cd; line-height:1.5; }
+.nba-explorer-plot img { object-fit:contain; background:#fff; }
+.nba-tab-visual { min-height:340px; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; border:1px solid #e6d8c9; background:radial-gradient(circle at 67% 30%,#4f3427,#222326 65%); border-radius:14px; padding:36px; color:#fff; }
+.nba-tab-label { font-size:10px; font-weight:850; letter-spacing:1.2px; color:#ffb77f; margin-bottom:10px; }
+.nba-tab-visual-icon { font-size:80px; line-height:1.1; color:#ff963d; margin-bottom:10px; }
+.nba-tab-visual strong { font-size:26px; line-height:1.2; }
+.nba-tab-visual p { font-size:14px; line-height:1.7; color:#e0d5ca; margin:13px 0; max-width:350px; }
+.nba-tab-visual a { font-size:13px; font-weight:850; color:#ffb783; }
+.nba-tab-visual small { display:block; margin-top:25px; color:#c6b2a4; font-size:11px; }
+.nba-season-split { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-bottom:25px; }
+.nba-season-split>div { padding:23px; border-radius:12px; background:#fff; border:1px solid #e7ddd4; }
+.nba-season-split span { display:block; font-size:10px; color:#a74700; font-weight:850; letter-spacing:1.2px; }
+.nba-season-split strong { display:block; font-size:18px; line-height:1.3; margin:10px 0; color:#262325; }
+.nba-season-split small { color:#69625e; line-height:1.55; font-size:12px; }
+.nba-results-table-wrap { overflow-x:auto; margin-bottom:23px; border:1px solid #e6d9ce; border-radius:12px; background:#fff; }
+.nba-results-table { width:100%; border-collapse:collapse; color:#252427; font-variant-numeric:tabular-nums; }
+.nba-results-table caption { padding:16px 19px; text-align:left; font-size:12px; color:#665e57; background:#fdfbf8; }
+.nba-results-table thead { background:#242326; color:#fff; }
+.nba-results-table th,.nba-results-table td { padding:15px 18px; border-bottom:1px solid #eee6df; font-size:13px; text-align:right; white-space:nowrap; }
+.nba-results-table th:first-child { text-align:left; }
+.nba-results-table tbody tr:last-child th,.nba-results-table tbody tr:last-child td { border-bottom:0; }
+.nba-results-selected { background:#fff2e7; }
+.nba-results-selected th span { display:inline-block; font-size:9px; font-weight:850; letter-spacing:.7px; margin-left:6px; padding:5px 7px; background:#fbdcc3; color:#7f3909; border-radius:5px; }
+.nba-insights-layout { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:25px; align-items:start; }
+.nba-insight-summary { display:grid; gap:15px; }
+.nba-insight-summary>div { border:1px solid #ecdacb; background:#fff8f1; border-radius:12px; padding:25px; }
+.nba-insight-summary span { display:block; color:#a44704; font-size:36px; font-weight:850; letter-spacing:-1px; }
+.nba-insight-summary strong { display:block; margin:9px 0 7px; color:#2d2926; font-size:18px; }
+.nba-insight-summary p { color:#635a54; font-size:13px; line-height:1.7; margin:0; }
+.nba-insight-caveat { color:#766d68; font-size:13px; line-height:1.75; padding:0 8px; }
+.nba-related-app { background:#1e1f22; color:#fff; border-top:1px solid #62503f; border-bottom:1px solid #62503f; }
+.nba-related-app-inner { display:flex; align-items:center; justify-content:space-between; gap:29px; padding-top:36px; padding-bottom:36px; }
+.nba-related-app h2 { font-size:clamp(23px,2.5vw,30px); margin:9px 0 12px; }
+.nba-related-app p:not(.study-kicker) { color:#ded6cd; line-height:1.7; font-size:13px; max-width:790px; margin:0; }
+.nba-related-app .study-kicker { color:#ffb27b; }
+.nba-related-app .actions { flex:0 0 auto; margin:0; }
+.nba-explorer-card-image { background:#242326; }
+.nba-explorer-card-image img { object-fit:contain; background:#fff; }
+@media(max-width:900px) { .nba-metrics-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .nba-metrics-grid>div:nth-child(2) { border-right:0; } .nba-metrics-grid>div:nth-child(-n+2) { border-bottom:1px solid #ffffff26; } .nba-insights-layout { grid-template-columns:1fr; } .nba-related-app-inner { flex-direction:column; align-items:flex-start; } .nba-related-app .actions { flex:initial; } }
+@media(max-width:600px) { .nba-metrics-grid>div { padding:20px 13px; } .nba-metrics-grid strong { font-size:24px; } .nba-season-split { grid-template-columns:1fr; } .nba-results-table th,.nba-results-table td { font-size:12px; padding:13px 11px; } .nba-hero-figure { padding:8px; } .nba-tab-visual { min-height:280px; padding:25px; } }
